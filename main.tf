@@ -403,9 +403,10 @@ resource "intersight_vnic_lan_connectivity_policy" "vniclancon1" {
 # add this into var if needed
 resource "intersight_vnic_fc_network_policy" "fc_netvsan_A" {
   count = var.fcconnectivity ? 1 : 0
-  name = "${var.prefix}-fc_vsan.A.100"
+  name = "${var.prefix}-fc_vsan.A"
   vsan_settings {
-    id = 100
+    id = 1
+    default_vlan_id = 1
   }
   organization {
     object_type = "organization.Organization"
@@ -414,9 +415,10 @@ resource "intersight_vnic_fc_network_policy" "fc_netvsan_A" {
 }
 resource "intersight_vnic_fc_network_policy" "fc_netvsan_B" {
   count = var.fcconnectivity ? 1 : 0
-  name = "${var.prefix}-fc_vsan.B.200"
+  name = "${var.prefix}-fc_vsan.B"
   vsan_settings {
-    id = 200
+    id = 1
+    default_vlan_id = 1
   }
   organization {
     object_type = "organization.Organization"
@@ -492,7 +494,7 @@ resource "intersight_vnic_fc_qos_policy" "fcqospol_def" {
 resource "intersight_vnic_fc_if" "fc0" {
   count = var.fcconnectivity ? 1 : 0
   name  = "fc0"
-  order = 0
+  order = 4
   placement {
     id       = "MLOM"
     pci_link = 0
@@ -517,7 +519,7 @@ resource "intersight_vnic_fc_if" "fc0" {
 resource "intersight_vnic_fc_if" "fc1" {
   count = var.fcconnectivity ? 1 : 0
   name  = "fc1"
-  order = 1
+  order = 5
   placement {
     id       = "MLOM"
     pci_link = 0

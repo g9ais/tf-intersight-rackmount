@@ -1,8 +1,8 @@
-prefix = "tfg9"
+prefix = "tftpg"
 intersight_tag = {
   key = "client"
-  value = "test"
+  value = "tpg"
 }
 servername = "tfg9-server01"
-fcconnectivity = false
+fcconnectivity = true
 #false - does not add hba or any fc policies

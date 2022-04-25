@@ -19,7 +19,7 @@ variable "endpoint" {
 variable "organization" {
     type = string
     description = "organisation moid"
-    default = "609c52976972652d33b61d71"
+    default = "5ddeb6fe6972652d33541e9c"
 }
 
 variable "prefix" {
